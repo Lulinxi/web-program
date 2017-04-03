@@ -1,0 +1,85 @@
+<!DOCTYPE HTML>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>city polluting 2</title>
+  </head>
+<body>
+
+  <ul id="source">
+    <li>北京空气质量：<b>90</b></li>
+    <li>上海空气质量：<b>70</b></li>
+    <li>天津空气质量：<b>80</b></li>
+    <li>广州空气质量：<b>50</b></li>
+    <li>深圳空气质量：<b>40</b></li>
+    <li>福州空气质量：<b>32</b></li>
+    <li>成都空气质量：<b>90</b></li>
+  </ul>
+
+  <ul id="resort">
+  </ul>
+
+  <button id="sort-btn">排序</button>
+
+<script type="text/javascript">
+var cityData=[];
+function city(name,value){
+  this.name=name;
+  this.value=value;
+}
+
+var Oul=document.getElementById("source");
+var Oli=document.getElementsByTagName("li");
+//获取数据
+//
+function getData() {
+   for (var i=0;i<7;i++)
+    {
+      var cityName=Oli[i].innerText.slice(0,2);
+      var cityValue=parseInt(Oli[i].innerText.slice(7));
+      cityData.push(new city(cityName,cityValue));
+    }
+
+
+   return cityData;
+
+}
+//创建新的元素节点li
+var Oul2=document.getElementById("resort");
+var k=1;
+
+function render(data) {
+    for (var i=0;i<7;i++){
+        var Oli2=document.createElement("li");
+        Oli2.innerHTML="第"+ k +"名："+ data[i].name + "空气质量：" + data[i].value;
+        Oul2.appendChild(Oli2);
+        k=k+1;
+    }
+
+}
+//将获取的数据进行排序
+function sortAqiData(data) {
+     data.sort(function(a,b){return a.value-b.value});
+}
+
+function btnHandle() {
+      var aqiData = getData();
+      sortAqiData(aqiData);//因为函数sortAqiData()没有返回值切忌使用aqiData=sortAqiData(aqiData),这样会报错
+      render(aqiData);
+}
+
+function init() {
+
+    var button=document.getElementById("sort-btn");
+    button.onclick=function(){btnHandle();}
+  // 在这下面给sort-btn绑定一个点击事件，点击时触发btnHandle函数
+
+}
+
+init();
+
+
+//init();
+</script>
+</body>
+</html>
