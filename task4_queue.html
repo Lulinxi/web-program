@@ -1,0 +1,67 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>task4</title>
+		<style type="text/css">
+		    *{padding:0px; margin:0px;float:left;}
+        	#tabs{width:250px; height:38px; padding:5px; margin:10px;float:left;background-color:#fff;} 
+        	#tabs ul{list-style:none; width:220px; height:30px; display:block; color:black; }
+        	#tabs ul li{display:inline-block; float:left;padding:2px;margin:4px;background-color:green;width:30px;height:30px; text-align: center;font:30px bold "microsoft yahei";}
+		</style>
+	    <script type="text/javascript">
+	    	
+	    	var numli=document.getElementsByTagName("li");
+            function leftin(){
+            	var numbers=document.getElementById("numbers").value;
+            	
+            	for(var i=0;i<numli.length;i++){
+            		numli[numli.length-1-i].innerHTML=numbers[i];
+            	}
+
+            }
+            function rightin(){
+            	var numbers=document.getElementById("numbers").value;
+            	for(var i=0;i<numli.length;i++){
+            		numli[i].innerHTML=numbers[i];
+            	}
+            }
+            function leftout(){
+            	for(var i=0;i<numli.length;i++){
+            		if(numli[i].innerHTML==""){continue;}
+            		else{numli[i].innerHTML="";break;}
+            	}
+
+            	
+            }  
+             function rightout(){
+            	for(var i=numli.length-1;i>=0;i--){
+            		if(numli[i].innerHTML==""){continue;}
+            		else{numli[i].innerHTML="";break;}
+            	}
+
+            	
+            }              
+
+	    </script>		
+	</head>
+	<body>
+	    <div>
+		    <input type="text" id="numbers">
+		    <button id="b1" onclick="leftin()">左侧入</button>
+		    <button id="b2" onclick="rightin()">右侧入</button>
+		    <button id="b3" onclick="leftout()">左侧出</button> 
+		    <button id="b4" onclick="rightout()">右侧出</button> 
+		</div>
+	    <br/>
+	    <div id="tabs">
+		    <ul>
+			    <li>1</li>
+			    <li>2</li>
+			    <li>3</li>
+			    <li>4</li>
+		    </ul>
+	    </div>
+
+	</body>
+</html>

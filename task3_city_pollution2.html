@@ -24,8 +24,8 @@
 <script type="text/javascript">
 var cityData=[];
 function city(name,value){
-  this.name=name;
-  this.value=value;
+    this.name=name;
+    this.value=value;
 }
 
 var Oul=document.getElementById("source");
@@ -65,7 +65,7 @@ function sortAqiData(data) {
 function btnHandle() {
       var aqiData = getData();
       sortAqiData(aqiData);//因为函数sortAqiData()没有返回值切忌使用aqiData=sortAqiData(aqiData),这样会报错
-      render(aqiData);
+      render(aqiData1);
 }
 
 function init() {
